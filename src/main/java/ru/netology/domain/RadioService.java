@@ -45,28 +45,28 @@ public class RadioService {
         this.currentStation = currentStation;
     }
 
-    public void setCurrentVolumePlus() {
+    public void setUpCurrentVolume() {
         this.currentVolume++;
         if (currentVolume > maxVolume) {
             return;
         }
     }
 
-    public void setCurrentVolumeMinus() {
+    public void setDownCurrentVolume() {
         this.currentVolume--;
         if (currentVolume < minVolume) {
             return;
         }
      }
 
-    public void setCurrentStationPlus() {
+    public void setUpCurrentStation() {
         this.currentStation ++;
         if (currentStation > maxStation) {
             this.currentStation = minStation;
         }
     }
 
-    public void setCurrentStationMinus() {
+    public void setDownCurrentStation() {
         this.currentStation--;
         if (currentStation < minStation) {
             this.currentStation = maxStation;

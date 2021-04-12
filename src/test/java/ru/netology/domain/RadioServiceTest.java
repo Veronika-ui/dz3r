@@ -17,8 +17,8 @@ public class RadioServiceTest {
 
     @Test
     public  void setCurrentStationValid() {
-        radio.setCurrentStation(7);
-        assertEquals(7, radio.getCurrentStation());
+        radio.setCurrentStation(5);
+        assertEquals(5, radio.getCurrentStation());
     }
 
     @Test
@@ -29,14 +29,14 @@ public class RadioServiceTest {
 
     @Test
     public void setStationUnderMin(){
-        radio.setCurrentStation(- 9);
+        radio.setCurrentStation(- 5);
         assertEquals(0, radio.getMinStation());
     }
 
     @Test
     public void setCurrentStationPlus(){
         radio.setCurrentStation(8);
-        radio.setCurrentStationPlus();
+        radio.setUpCurrentStation();
         assertEquals(9, radio.getCurrentStation());
 
     }
@@ -44,20 +44,20 @@ public class RadioServiceTest {
     @Test
     public  void setCurrentStationOverPlus(){
         radio.setCurrentStation(10);
-        radio.setCurrentStationPlus();
+        radio.setUpCurrentStation();
         assertEquals(0, radio.getCurrentStation());
     }
 
     @Test
     public void setCurrentStationMinus(){
         radio.setCurrentStation(9);
-        radio.setCurrentStationMinus();
+        radio.setDownCurrentStation();
         assertEquals(8, radio.getCurrentStation());
     }
     @Test
     public void setCurrentStationUnderMinus(){
         radio.setCurrentStation(0);
-        radio.setCurrentStationMinus();
+        radio.setDownCurrentStation();
         assertEquals(10, radio.getCurrentStation());
     }
 
@@ -75,14 +75,14 @@ public class RadioServiceTest {
 
     @Test
     public void setCurrentVolumeUnderMin(){
-        radio.setCurrentVolume(-14);
+        radio.setCurrentVolume(-18);
         assertEquals(0, radio.getMinVolume());
     }
 
     @Test
     public void setUpCurrentVolumeValid(){
         radio.setCurrentVolume(78);
-        radio.setCurrentVolumePlus();
+        radio.setUpCurrentVolume();
         assertEquals(79, radio.getCurrentVolume());
     }
 
@@ -90,27 +90,22 @@ public class RadioServiceTest {
     @Test
     public void setUpCurrentVolumeOverMax(){
         radio.setCurrentVolume(100);
-        radio.setCurrentVolumePlus();
+        radio.setUpCurrentVolume();
         assertEquals(100, radio.getMaxVolume());
     }
 
     @Test
     public void setDownCurrentVolumeValid(){
         radio.setCurrentVolume(78);
-        radio.setCurrentVolumeMinus();
+        radio.setDownCurrentVolume();
         assertEquals(77, radio.getCurrentVolume());
     }
-
 
     @Test
     public void setDowncurrentVolumeUnderMin(){
         radio.setCurrentVolume(0);
-        radio.setCurrentVolumeMinus();
+        radio.setDownCurrentVolume();
         assertEquals(0, radio.getMinVolume());
     }
 
-
-
 }
-
-
